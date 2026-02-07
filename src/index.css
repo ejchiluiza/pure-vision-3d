@@ -1,0 +1,23 @@
+/* Importamos solo pesos elegantes: 300 (Light), 400 (Regular) y 500 (Medium) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Forzamos el ancho total para evitar que la página se vea pequeña */
+html, body, #root {
+  width: 100% !important;
+  min-height: 100vh;
+  display: block !important; 
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300; /* Peso ligero por defecto */
+  background-color: #ffffff;
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+}
