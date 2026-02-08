@@ -1,77 +1,66 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
 
 const Contact = () => {
   return (
     <div className="contact-modern-page">
       <div className="contact-container-split">
         
-        {/* Lado Izquierdo: Información Técnica */}
+        {/* Lado Izquierdo */}
         <div className="contact-info-side">
-          <span className="contact-label">Contacto Directo</span>
-          <h1>HABLEMOS DE TU PRÓXIMO PROYECTO</h1>
+          <span className="contact-label">Contacto Profesional</span>
+          <h1>IMPULSA TU PROYECTO</h1>
           <p>
-            Estamos listos para transformar tus ideas en estructuras sólidas y funcionales.
+            Materializamos tus ideas con la mayor precisión tecnológica y visual del mercado.
           </p>
 
           <div className="info-details">
             <div className="detail-item">
-              <Phone size={20} color="#00d4ff" />
-              <div>
-                <span>Teléfonos</span>
-                <p>023527438 / 0999834014</p>
-              </div>
+              <Phone size={24} color="#c5a059" />
+              <div><span>Teléfono</span><p>0999834014</p></div>
             </div>
             <div className="detail-item">
-              <Mail size={20} color="#00d4ff" />
-              <div>
-                <span>Correo Electrónico</span>
-                <p>vistaarquitecturaec@gmail.com</p>
-              </div>
+              <Mail size={24} color="#c5a059" />
+              <div><span>Email</span><p>vistaarquitecturaec@gmail.com</p></div>
             </div>
             <div className="detail-item">
-              <MapPin size={20} color="#00d4ff" />
-              <div>
-                <span>Ubicación</span>
-                <p>Valle de los Chillos, Ecuador</p>
-                <p className="sub-addr">Calle Quitus y Av. Huancavilca</p>
-              </div>
+              <MapPin size={24} color="#c5a059" />
+              <div><span>Ubicación</span><p>Valle de los Chillos, Ecuador</p></div>
+            </div>
+            <div className="detail-item" style={{cursor:'pointer'}} onClick={() => window.open('https://wa.me/593999834014', '_blank')}>
+               <MessageCircle size={24} color="#25D366" />
+               <div><span>WhatsApp</span><p style={{color:'#25D366'}}>Chatear Ahora</p></div>
             </div>
           </div>
         </div>
 
-        {/* Lado Derecho: Formulario Moderno */}
+        {/* Lado Derecho */}
         <div className="contact-form-side">
           <form className="minimalist-form">
             <div className="form-row">
               <div className="form-group">
-                <label>Nombre Completo</label>
-                <input type="text" placeholder="Ej: Edison Chiluiza" required />
+                <label>Nombre</label>
+                <input type="text" placeholder="Tu nombre completo" />
               </div>
               <div className="form-group">
                 <label>Email</label>
-                <input type="email" placeholder="ejemplo@correo.com" required />
+                <input type="email" placeholder="correo@ejemplo.com" />
               </div>
             </div>
-            
             <div className="form-group">
-              <label>Tipo de Proyecto</label>
+              <label>Servicio de Interés</label>
               <select>
-                <option>Residencial</option>
-                <option>Comercial</option>
-                <option>Diseño de Interiores</option>
-                <option>Otro</option>
+                <option>Render Exterior</option>
+                <option>Render Interior</option>
+                <option>Recorrido Virtual</option>
+                <option>Web para Arquitectos</option>
               </select>
             </div>
-
             <div className="form-group">
               <label>Mensaje</label>
-              <textarea placeholder="Cuéntanos los detalles de tu obra..." rows="5" required></textarea>
+              <textarea rows="4" placeholder="Detalles del proyecto..."></textarea>
             </div>
-
-            <button type="submit" className="btn-modern-send">
-              Enviar Solicitud <Send size={16} />
-            </button>
+            <button className="btn-modern-send">Enviar Mensaje <Send size={18}/></button>
           </form>
         </div>
 

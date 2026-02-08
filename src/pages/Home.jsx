@@ -10,22 +10,20 @@ const Home = () => {
       >
         <div className="home-overlay">
           <div className="home-content-box">
-            <span className="home-tagline">Innovación y Precisión</span>
-            <h1>CONSTRUIMOS EL FUTURO QUE IMAGINAS</h1>
+            <span className="home-tagline">Estudio de Visualización 3D</span>
+            <h1>PURE VISION 3D</h1> {/* Tu nuevo nombre brilla aquí */}
             <div className="home-line"></div>
             <p>
-              En VISTA ARQUITECTURA, convertimos visiones en espacios extraordinarios. 
-              Especialistas en diseño arquitectónico moderno y construcción de alta precisión.
+              Elevamos la arquitectura a una experiencia digital. Especialistas en 
+              Renders de alta gama, Animaciones HD y Desarrollo Web para el sector inmobiliario.
             </p>
             
             <div className="home-actions">
-              {/* Ajustado: Ahora dirige a la nueva página de PROYECTOS */}
-              <Link to="/proyectos" className="btn-primary">
-                Nuestros Proyectos
+              <Link to="/servicios" className="btn-primary">
+                Ver Portafolio
               </Link>
-              
               <Link to="/contacto" className="btn-secondary">
-                Solicitar Asesoría
+                Cotizar Proyecto
               </Link>
             </div>
           </div>

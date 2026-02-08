@@ -1,4 +1,4 @@
-/* Importamos solo pesos elegantes: 300 (Light), 400 (Regular) y 500 (Medium) */
+/* Importamos solo pesos elegantes */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
 * {
@@ -7,7 +7,6 @@
   box-sizing: border-box;
 }
 
-/* Forzamos el ancho total para evitar que la página se vea pequeña */
 html, body, #root {
   width: 100% !important;
   min-height: 100vh;
@@ -16,8 +15,75 @@ html, body, #root {
 
 body {
   font-family: 'Poppins', sans-serif;
-  font-weight: 300; /* Peso ligero por defecto */
+  font-weight: 300;
   background-color: #ffffff;
   color: #1a1a1a;
   -webkit-font-smoothing: antialiased;
+}
+
+/* --- SECCIÓN DE SERVICIOS --- */
+.services-section {
+  padding: 60px 2%; /* Reducimos padding para dar más espacio horizontal */
+  background-color: #0a0a0a; 
+  text-align: center;
+  width: 100%;
+}
+
+.services-header h2 {
+  color: #fff;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+.services-grid {
+  display: grid;
+  /* CAMBIO CLAVE: Forzamos 4 columnas exactas sin importar el tamaño del contenido */
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 15px; /* Reducimos el espacio entre tarjetas para que quepan mejor */
+  max-width: 100%; /* Que ocupe todo el ancho disponible */
+  margin: 0 auto;
+}
+
+.service-card {
+  background: #161616;
+  padding: 25px 15px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 260px; /* Altura uniforme */
+}
+
+.service-card:hover {
+  border-color: #c5a059;
+  transform: translateY(-5px);
+}
+
+.service-card h3 {
+  color: #c5a059;
+  margin-bottom: 12px;
+  font-size: 1rem; /* Un poco más pequeño para asegurar que quepa en una línea */
+  font-weight: 500;
+}
+
+.service-card p {
+  color: #aaa;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* RESPONSIVE: Solo si la pantalla es muy pequeña (Celulares) se ponen uno bajo otro */
+@media (max-width: 800px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 y 2 en tablets */
+  }
+}
+
+@media (max-width: 500px) {
+  .services-grid {
+    grid-template-columns: 1fr; /* 1 columna en celulares */
+  }
 }

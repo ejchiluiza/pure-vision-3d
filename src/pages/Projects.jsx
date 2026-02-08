@@ -1,45 +1,44 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
 const Projects = () => {
-  // Configuración de proyectos con IDs únicos para la ruta dinámica
-  const proyectosData = [
-    { id: "RES-01", imagen: "proyectos1.jpg", titulo: "Residencia Moderna" },
-    { id: "COM-02", imagen: "proyectos2.jpg", titulo: "Centro Comercial" },
-    { id: "HAB-03", imagen: "proyectos3.jpg", titulo: "Conjunto Habitacional" },
-    { id: "INT-04", imagen: "proyectos4.jpg", titulo: "Remodelación Interiores" },
-    { id: "COR-05", imagen: "proyectos5.jpg", titulo: "Edificio Corporativo" },
-    { id: "URB-06", imagen: "proyectos6.jpg", titulo: "Urbanización Privada" }
-  ];
+  const [activeImg, setActiveImg] = useState(null);
+
+  // MAGIA: Esto importa TODAS las imágenes de la carpeta automáticamente
+  // { eager: true } hace que se carguen al instante.
+  const imagesObj = import.meta.glob('../assets/portfolio/*.{png,jpg,jpeg,webp}', { eager: true });
+  
+  // Convertimos el objeto extraño que devuelve Vite en una lista simple de rutas
+  const portfolio = Object.values(imagesObj).map((mod) => mod.default);
 
   return (
     <div className="projects-container">
+      {/* Banner */}
       <div className="projects-hero-section">
         <div className="projects-hero-overlay">
-          <h1>NUESTROS PROYECTOS</h1>
+          <span className="home-tagline">Portafolio Premium</span>
+          <h1>PURE VISION 3D</h1>
           <div className="projects-hero-line"></div>
-          <p>Transformamos visiones arquitectónicas en realidades tangibles y duraderas.</p>
         </div>
       </div>
 
+      {/* Galería */}
       <section className="projects-gallery-section">
-        <div className="projects-masonry-grid">
-          {proyectosData.map((proy) => (
-            <div key={proy.id} className="project-card-item">
-              <div className="project-card-img-wrapper">
-                <img src={`/${proy.imagen}`} alt={proy.titulo} />
-                <div className="project-card-hover-info">
-                  <h3>{proy.titulo}</h3>
-                  {/* Link dinámico que envía el ID a la URL */}
-                  <Link to={`/proyectos/${proy.id}`} className="view-detail-btn">
-                    Ver Detalles
-                  </Link>
-                </div>
-              </div>
+        <div className="projects-clean-grid">
+          {portfolio.map((imgSrc, i) => (
+            <div key={i} className="project-image-card" onClick={() => setActiveImg(imgSrc)}>
+              <img src={imgSrc} alt={`Proyecto ${i}`} loading="lazy" />
             </div>
           ))}
         </div>
       </section>
+
+      {/* Lightbox */}
+      {activeImg && (
+        <div className="lightbox-overlay" onClick={() => setActiveImg(null)}>
+          <span className="close-lightbox">&times;</span>
+          <img src={activeImg} className="lightbox-img" alt="Zoom" />
+        </div>
+      )}
     </div>
   );
 };

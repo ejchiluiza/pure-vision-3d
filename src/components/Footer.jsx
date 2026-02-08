@@ -26,7 +26,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-credits">
-        <p>&copy; 2026 VISTA ARQUITECTURA | NRC 29334 - Programación Integrativa</p>
+        <p>&copy; 2026 - PURE VISION 3D es un servicio de VISTA ARQUITECTURA</p>
       </div>
     </footer>
   );

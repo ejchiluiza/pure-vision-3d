@@ -1,718 +1,231 @@
-/* 1. RESET TOTAL DE ALTURA Y FUENTES */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+/* ============================================================
+   PURE VISION 3D - VERSIÓN FINAL (FOOTER DELGADO)
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+:root {
+  --primary: #c5a059;       /* Dorado */
+  --bg-dark: #0a0a0a;      /* Negro Fondo */
+  --bg-card: #161616;      /* Gris Tarjetas */
+  --text-white: #ffffff;
+}
+
+/* 1. RESET */
 html, body, #root {
-  height: 100%;
+  width: 100%;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
+  background-color: var(--bg-dark);
   font-family: 'Poppins', sans-serif;
+  color: var(--text-white);
   -webkit-font-smoothing: antialiased;
-  background-color: #ffffff;
 }
 
-/* 2. ESTRUCTURA PARA EL FOOTER FIJO ABAJO */
-#root-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
-}
+* { box-sizing: border-box; }
 
-.main-content {
-  flex: 1 0 auto;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
+#root-container { display: flex; flex-direction: column; min-height: 100vh; }
+.main-content { flex: 1 0 auto; }
 
-/* 3. HEADER "AERO" MODERNO */
+/* 2. HEADER */
 .main-header {
   width: 100%;
   padding: 0.8rem 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(135deg, rgba(13, 27, 42, 0.95) 0%, rgba(20, 39, 57, 0.9) 100%);
+  background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(12px);
-  border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+  border-bottom: 2px solid rgba(197, 160, 89, 0.3);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-.nav-logo { height: 65px; width: auto; }
+.nav-logo { height: 70px; width: auto; }
 
 .nav-menu { display: flex; gap: 35px; }
-
 .nav-menu a {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  transition: 0.3s;
+  color: #fff; text-decoration: none; font-size: 0.9rem; 
+  text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s;
+}
+.nav-menu a:hover, .nav-menu a.active {
+  color: var(--primary); border-bottom: 1px solid var(--primary);
 }
 
-.nav-menu a.active {
-  color: #00d4ff;
-  border-bottom: 2px solid #00d4ff;
-}
-
-/* 4. SECCIÓN INICIO (HOME) */
+/* ============================================================
+   3. SECCIÓN INICIO (HOME) - GIGANTE
+   ============================================================ */
 .home-hero-container {
-  flex: 1;
-  display: flex;
+  flex: 1; display: flex; min-height: 100vh;
 }
-
 .home-hero-bg {
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
+  width: 100%; background-size: cover; background-position: center; display: flex;
 }
-
 .home-overlay {
-  flex: 1;
-  background: rgba(13, 27, 42, 0.6); 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
+  flex: 1; background: rgba(0, 0, 0, 0.7);
+  display: flex; justify-content: center; align-items: center; padding: 40px;
 }
-
 .home-content-box {
-  text-align: center;
-  color: white;
-  max-width: 900px;
+  text-align: center; color: white; max-width: 900px;
   animation: slideUpHome 1.2s ease-out;
 }
-
 .home-tagline {
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-size: 0.9rem;
-  color: #00d4ff;
-  margin-bottom: 10px;
+  display: block; text-transform: uppercase; letter-spacing: 4px;
+  font-size: 0.9rem; color: var(--primary); margin-bottom: 10px; font-weight: 600;
 }
-
+/* Título Gigante Home */
 .home-content-box h1 {
-  font-size: 3.8rem;
-  font-weight: 500;
-  letter-spacing: 2px;
-  line-height: 1.1;
-  margin-bottom: 20px;
+  font-size: 3.8rem; font-weight: 500; letter-spacing: 2px;
+  line-height: 1.1; margin-bottom: 20px; text-transform: uppercase;
 }
-
-.home-line {
-  height: 5px;
-  width: 100px;
-  background: #00d4ff;
-  margin: 0 auto 30px;
-}
-
+.home-line { height: 5px; width: 100px; background: var(--primary); margin: 0 auto 30px; }
 .home-content-box p {
-  font-size: 1.4rem;
-  line-height: 1.8;
-  color: #ffffff !important;
-  margin-bottom: 40px;
-  font-weight: 300;
+  font-size: 1.4rem; line-height: 1.8; color: #fff !important; margin-bottom: 40px; font-weight: 300;
 }
+.home-actions { display: flex; justify-content: center; gap: 20px; }
 
-.home-actions {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
+@keyframes slideUpHome { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-.btn-primary, .btn-secondary {
-  padding: 15px 35px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.3s;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
+/* ============================================================
+   4. SECCIÓN NOSOTROS (ABOUT) - GRANDE
+   ============================================================ */
+.about-hero-container { flex: 1; display: flex; min-height: 100vh; }
+.about-hero-bg { width: 100%; background-size: cover; background-position: center; display: flex; }
+.about-overlay { flex: 1; background: rgba(0, 0, 0, 0.75); display: flex; justify-content: center; align-items: center; padding: 40px; }
+.about-content-box { text-align: center; color: white; max-width: 850px; animation: fadeInAbout 1.5s ease-in-out; }
 
-.btn-primary { background: #00d4ff; border: none; color: #0d1b2a; }
-.btn-secondary { background: transparent; border: 2px solid #ffffff; color: white; }
-.btn-primary:hover { background: #ffffff; color: #00d4ff; }
-.btn-secondary:hover { background: #ffffff; color: #0d1b2a; }
-
-@keyframes slideUpHome {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* 5. SECCIÓN NOSOTROS (ABOUT) */
-.about-hero-container {
-  flex: 1;
-  display: flex;
-}
-
-.about-hero-bg {
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-}
-
-.about-overlay {
-  flex: 1;
-  background: rgba(0, 0, 0, 0.65);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-}
-
-.about-content-box {
-  text-align: center;
-  color: white;
-  max-width: 850px;
-  animation: fadeInAbout 1.5s ease-in-out;
-}
-
+/* Título Grande About */
 .about-content-box h1 {
-  font-size: 3.2rem;
-  letter-spacing: 6px;
-  margin-bottom: 5px;
-  font-weight: 500;
+  font-size: 3.2rem; letter-spacing: 6px; margin-bottom: 5px;
+  font-weight: 500; text-transform: uppercase;
 }
+.about-line { height: 4px; width: 70px; background: var(--primary); margin: 20px auto; }
+.about-content-box p { font-size: 1.4rem; line-height: 1.8; color: #fff !important; font-weight: 300; }
+@keyframes fadeInAbout { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-.about-line {
-  height: 4px;
-  width: 70px;
-  background: #00d4ff;
-  margin: 20px auto;
+/* ============================================================
+   5. SECCIÓN SERVICIOS (GRID 3x3)
+   ============================================================ */
+.services-container { flex: 1; display: flex; flex-direction: column; }
+.services-hero-bg { height: 50vh; background-size: cover; background-position: center; display: flex; }
+.services-overlay { flex: 1; background: rgba(10, 10, 10, 0.8); display: flex; justify-content: center; align-items: center; }
+.services-intro { text-align: center; padding: 20px; }
+.services-intro h1 { font-size: 3rem; letter-spacing: 4px; font-weight: 500; text-transform: uppercase; margin: 0; }
+.services-line { height: 4px; width: 60px; background: var(--primary); margin: 15px auto; }
+
+.services-row-section { padding: 80px 5%; background-color: var(--bg-dark); }
+.services-grid-fixed {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1400px; margin: 0 auto;
 }
-
-.about-content-box p {
-  font-size: 1.4rem;
-  line-height: 1.8;
-  color: #ffffff !important;
-  font-weight: 300;
-}
-
-@keyframes fadeInAbout {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* 6. SECCIÓN SERVICIOS (SERVICES) */
-.services-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.services-hero-bg {
-  height: 45vh; 
-  background-size: cover;
-  background-position: center;
-  display: flex;
-}
-
-.services-overlay {
-  flex: 1;
-  background: rgba(13, 27, 42, 0.75);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.services-intro {
-  text-align: center;
-  color: white;
-  padding: 20px;
-}
-
-.services-intro h1 {
-  font-size: 2.8rem;
-  letter-spacing: 4px;
-  font-weight: 500;
-}
-
-.services-line {
-  height: 4px;
-  width: 60px;
-  background: #00d4ff;
-  margin: 15px auto;
-}
-
-.services-grid-section {
-  padding: 80px 10%;
-  background: #fdfdfd;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .service-card {
-  background: white;
-  padding: 50px 40px;
-  text-align: center;
-  border-radius: 4px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
-  border-bottom: 4px solid #f1f1f1;
+  background-color: var(--bg-card); border: 1px solid #333; padding: 50px 30px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  transition: all 0.3s ease; min-height: 320px; border-bottom: 4px solid #333;
 }
-
 .service-card:hover {
-  transform: translateY(-10px);
-  border-bottom: 4px solid #00d4ff;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  transform: translateY(-10px); border-bottom-color: var(--primary); background-color: #000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
+.card-number { font-size: 3rem; font-weight: 700; color: rgba(197, 160, 89, 0.2); margin-bottom: 15px; line-height: 1; }
+.service-card h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+.service-card p { color: #a1a1a1; font-size: 0.95rem; line-height: 1.6; }
 
-.card-number {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: rgba(0, 212, 255, 0.15);
-  margin-bottom: 10px;
+/* CTA SERVICIOS */
+.services-cta {
+  background: linear-gradient(180deg, #0a0a0a 0%, #141414 100%);
+  padding: 100px 5%; text-align: center; border-top: 1px solid #222;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;
 }
+.services-cta::before { content: ''; display: block; width: 60px; height: 4px; background-color: var(--primary); margin-bottom: 30px; }
+.services-cta h2 { font-size: 2.5rem; color: #fff; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 3px; font-weight: 600; }
+.services-cta p { font-size: 1.1rem; color: #ccc; max-width: 700px; margin: 0 auto 40px auto; line-height: 1.8; }
 
-.service-card h3 {
-  font-size: 1.5rem;
-  color: #0d1b2a;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
+/* ============================================================
+   6. SECCIÓN PROYECTOS (PORTAFOLIO)
+   ============================================================ */
+.projects-hero-section {
+  height: 50vh; background-size: cover; background-position: center; display: flex; justify-content: center; align-items: center; text-align: center; position: relative;
 }
-
-.service-card p {
-  font-size: 1rem;
-  color: #4a5568 !important;
-  line-height: 1.7;
+.projects-hero-overlay {
+  flex: 1; background: rgba(0, 0, 0, 0.75); display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 40px;
 }
+.projects-hero-overlay h1 { font-size: 3rem; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; margin: 0; }
+.projects-hero-line { height: 4px; width: 60px; background: var(--primary); margin: 15px auto; }
+.projects-gallery-section { padding: 60px 2%; background-color: #000; }
+.projects-clean-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 15px; }
+.project-image-card { height: 350px; overflow: hidden; cursor: pointer; background: #111; }
+.project-image-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.project-image-card:hover img { transform: scale(1.1); }
 
-/* 7. SECCIÓN ESPECIALIDADES CON IMÁGENES */
-.specialties-section {
-  padding: 80px 10% 120px;
-  text-align: center;
-  background-color: #ffffff;
-}
+/* ============================================================
+   7. SECCIÓN CONTACTO (DIVIDIDO)
+   ============================================================ */
+.contact-modern-page { padding: 100px 8%; background-color: var(--bg-dark); display: flex; justify-content: center; }
+.contact-container-split { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; width: 100%; max-width: 1200px; }
+.contact-info-side h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 20px; font-weight: 500; }
+.contact-label { color: var(--primary); text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem; display: block; margin-bottom: 10px; }
+.info-details { margin-top: 40px; display: flex; flex-direction: column; gap: 30px; }
+.detail-item { display: flex; gap: 20px; align-items: flex-start; }
+.detail-item span { font-size: 0.8rem; color: #666; text-transform: uppercase; display: block; margin-bottom: 5px; }
+.detail-item p { font-size: 1.1rem; color: #fff; margin: 0; font-weight: 500; }
 
-.specialties-section h2 {
-  font-size: 1.8rem;
-  color: #0d1b2a;
-  letter-spacing: 2px;
-  margin-bottom: 60px;
-  font-weight: 500;
-}
-
-.specialties-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.specialty-card {
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
-  text-align: left;
-}
-
-.specialty-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
-}
-
-.specialty-image-box {
-  height: 200px;
-  overflow: hidden;
-}
-
-.specialty-image-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.specialty-card:hover .specialty-image-box img {
-  transform: scale(1.1);
-}
-
-.specialty-content {
-  padding: 25px;
-}
-
-.specialty-content h3 {
-  font-size: 1.2rem;
-  color: #0d1b2a;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.specialty-content p {
-  font-size: 0.95rem;
-  color: #64748b !important;
-  line-height: 1.5;
-  margin: 0;
-}
-
-/* 8. SECCIÓN CONTACTO MODERNO MINIMALISTA */
-.contact-modern-page {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 80px 10%;
-  background-color: #ffffff;
-}
-
-.contact-container-split {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 80px;
-  max-width: 1200px;
-  width: 100%;
-}
-
-.contact-info-side h1 {
-  font-size: 2.5rem;
-  line-height: 1.1;
-  color: #0d1b2a;
-  margin: 15px 0 25px;
-}
-
-.contact-label {
-  color: #00d4ff;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-.contact-info-side p {
-  color: #4a5568 !important;
-  font-size: 1rem;
-  line-height: 1.7;
-  margin-bottom: 40px;
-}
-
-.info-details {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.detail-item {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-}
-
-.detail-item span {
-  display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  color: #94a3b8;
-  letter-spacing: 1px;
-}
-
-.detail-item p {
-  margin: 0 !important;
-  font-weight: 500;
-  color: #1e293b !important;
-}
-
-/* Formulario Minimalista */
-.minimalist-form {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.form-group label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #0d1b2a;
-}
-
+.minimalist-form { display: flex; flex-direction: column; gap: 30px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.form-group { display: flex; flex-direction: column; }
+.form-group label { color: var(--primary); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px; }
 .form-group input, .form-group select, .form-group textarea {
-  padding: 12px 0;
-  border: none;
-  border-bottom: 2px solid #e2e8f0;
-  background: transparent;
-  font-family: inherit;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s;
+  background: transparent; border: none; border-bottom: 1px solid #333; padding: 12px 0; color: #fff; font-family: inherit; font-size: 1rem; outline: none; transition: 0.3s;
 }
+.form-group input:focus, .form-group textarea:focus { border-bottom-color: var(--primary); }
 
-.form-group input:focus, .form-group textarea:focus {
-  border-bottom-color: #00d4ff;
+/* 8. BOTONES */
+.btn-primary, .btn-modern-send {
+  background: var(--primary); color: #000; padding: 15px 35px; border: none; font-weight: 600; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; transition: 0.3s;
 }
+.btn-secondary { background: transparent; border: 2px solid #fff; color: #fff; padding: 15px 35px; text-decoration: none; text-transform: uppercase; font-weight: 600; transition: 0.3s; }
+.btn-primary:hover, .btn-modern-send:hover { background: #fff; color: #000; }
+.btn-secondary:hover { background: var(--primary); border-color: var(--primary); color: #000; }
 
-.btn-modern-send {
-  align-self: flex-start;
-  padding: 15px 40px;
-  background: #0d1b2a;
-  color: white;
-  border: none;
-  text-transform: uppercase;
-  font-weight: 500;
-  letter-spacing: 2px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: 0.3s;
-  margin-top: 20px;
-}
-
-.btn-modern-send:hover {
-  background: #00d4ff;
-  color: #0d1b2a;
-}
-
-/* 9. FOOTER ESTÁTICO Y CRÉDITOS */
+/* ============================================================
+   9. FOOTER DELGADO (40% MENOS GROSOR)
+   ============================================================ */
 .main-footer {
   flex-shrink: 0;
-  background: linear-gradient(90deg, #2d0052 0%, #8d009a 50%, #f700ff 100%);
-  padding: 1.5rem 8% 1rem;
+  background: linear-gradient(90deg, #050505 0%, #1a150c 50%, #c5a059 100%);
+  /* Padding reducido drasticamente: 1.5rem arriba, 0.8rem abajo */
+  padding: 1.5rem 8% 0.8rem; 
   color: white;
   width: 100%;
 }
-
 .footer-content {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  margin-bottom: 1rem;
+  gap: 30px; /* Un poco menos de gap */
+  margin-bottom: 0.8rem; /* Menos margen al copyright */
   flex-wrap: wrap;
 }
-
 .footer-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 0.85rem;
+  display: flex; align-items: center; gap: 10px; font-size: 0.8rem; /* Fuente un poco más fina */
 }
-
-.footer-item svg {
-  transition: transform 0.3s ease;
-}
-
-.footer-item:hover svg {
-  transform: scale(1.1);
-}
-
 .footer-credits {
   border-top: 1px solid rgba(255,255,255,0.2);
-  padding-top: 1rem;
+  padding-top: 0.8rem; /* Padding reducido */
   text-align: center;
 }
+.footer-credits p { font-size: 0.7rem; margin: 0; }
 
-.footer-credits p {
-  color: white !important;
-  font-size: 0.75rem;
-}
+/* 10. LIGHTBOX & RESPONSIVE */
+.lightbox-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: flex; justify-content: center; align-items: center; z-index: 9999; }
+.lightbox-img { max-width: 90%; max-height: 85%; border: 1px solid var(--primary); box-shadow: 0 0 30px rgba(0,0,0,0.8); }
+.close-lightbox { position: absolute; top: 20px; right: 40px; color: var(--primary); font-size: 50px; cursor: pointer; }
 
-/* --- 10. ESTILOS DE LA NUEVA PÁGINA PROYECTOS --- */
-.projects-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.projects-hero-section {
-  height: 40vh;
-  background: linear-gradient(rgba(13, 27, 42, 0.8), rgba(13, 27, 42, 0.8)), url('/imagen-central.jpg.jpg');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-}
-
-.projects-hero-line {
-  height: 4px;
-  width: 60px;
-  background: #00d4ff;
-  margin: 15px auto;
-}
-
-.projects-gallery-section {
-  padding: 60px 8%;
-  background-color: #f8fafc;
-}
-
-.projects-masonry-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 25px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.project-card-item {
-  background: #fff;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  height: 300px;
-}
-
-.project-card-img-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.project-card-img-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.project-card-hover-info {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(13, 27, 42, 0.85);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: 0.4s;
-  text-align: center;
-  padding: 20px;
-}
-
-.project-card-item:hover .project-card-hover-info {
-  opacity: 1;
-}
-
-.project-card-item:hover .project-card-img-wrapper img {
-  transform: scale(1.1);
-}
-
-.project-card-hover-info h3 {
-  color: #00d4ff;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-}
-
-.project-card-hover-info span {
-  color: #fff;
-  font-size: 0.8rem;
-  border: 1px solid #fff;
-  padding: 5px 15px;
-}
-
-/* RESPONSIVO GENERAL */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  .services-grid-fixed { grid-template-columns: repeat(2, 1fr); }
   .contact-container-split { grid-template-columns: 1fr; gap: 50px; }
+  .home-content-box h1 { font-size: 2.8rem; }
+  .about-content-box h1 { font-size: 2.5rem; }
+}
+@media (max-width: 600px) {
+  .services-grid-fixed { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
-  .home-content-box h1 { font-size: 2.5rem; }
-  .projects-masonry-grid { grid-template-columns: 1fr; }
 }
-/* --- ESTILOS PARA DETALLE DINÁMICO --- */
-.project-detail-view {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.detail-hero-banner {
-  height: 30vh;
-  background: #0d1b2a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-}
-
-.detail-hero-content h1 {
-  font-size: 2.2rem;
-  letter-spacing: 2px;
-  color: #00d4ff;
-}
-
-.detail-main-info {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 50px;
-  padding: 60px 8%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.info-column h2 { color: #0d1b2a; margin-bottom: 20px; }
-.info-column p { line-height: 1.8; color: #4a5568; }
-
-.specs-column { background: #f1f5f9; padding: 30px; border-radius: 4px; }
-.specs-column h3 { margin-bottom: 15px; color: #0d1b2a; }
-.specs-column ul { list-style: none; padding: 0; margin-bottom: 30px; }
-.specs-column li { padding: 10px 0; border-bottom: 1px solid #cbd5e1; color: #64748b; }
-
-.btn-return {
-  display: block;
-  background: #0d1b2a;
-  color: white;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  transition: 0.3s;
-}
-
-.btn-return:hover { background: #00d4ff; color: #0d1b2a; }
-
-/* Botón de la galería */
-.view-detail-btn {
-  color: white;
-  border: 1px solid white;
-  padding: 8px 16px;
-  text-decoration: none;
-  font-size: 0.8rem;
-  transition: 0.3s;
-}
-
-.view-detail-btn:hover { background: #00d4ff; border-color: #00d4ff; color: #0d1b2a; }
