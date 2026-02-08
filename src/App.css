@@ -27,30 +27,85 @@ html, body, #root {
 #root-container { display: flex; flex-direction: column; min-height: 100vh; }
 .main-content { flex: 1 0 auto; }
 
-/* 2. HEADER */
+/* =========================================
+   2. HEADER RESPONSIVE (CON MENÚ HAMBURGUESA)
+   ========================================= */
 .main-header {
   width: 100%;
-  padding: 0.8rem 8%;
+  padding: 0 8%; /* Ajuste de padding */
+  height: 80px;  /* Altura fija para evitar saltos */
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(12px);
-  border-bottom: 2px solid rgba(197, 160, 89, 0.3);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-.nav-logo { height: 70px; width: auto; }
+.nav-logo-link { text-decoration: none; display: flex; align-items: center; }
+.nav-logo { height: 50px; width: auto; }
 
-.nav-menu { display: flex; gap: 35px; }
+/* Menú Escritorio */
+.nav-menu { display: flex; gap: 40px; }
+
 .nav-menu a {
-  color: #fff; text-decoration: none; font-size: 0.9rem; 
-  text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: 0.3s;
+  position: relative;
+  font-weight: 500;
 }
+
 .nav-menu a:hover, .nav-menu a.active {
-  color: var(--primary); border-bottom: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+/* Línea animada debajo del link */
+.nav-menu a::after {
+  content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0;
+  background-color: var(--primary); transition: width 0.3s ease;
+}
+.nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
+
+/* Icono Hamburguesa (Oculto en escritorio) */
+.mobile-menu-icon { display: none; cursor: pointer; }
+
+/* =========================================
+   RESPONSIVE: MÓVIL (Menor a 768px)
+   ========================================= */
+@media (max-width: 768px) {
+  .main-header { padding: 0 5%; }
+  
+  .mobile-menu-icon { display: block; } /* Mostrar icono */
+
+  .nav-menu {
+    position: absolute;
+    top: 80px; /* Justo debajo del header */
+    left: -100%; /* Oculto a la izquierda */
+    width: 100%;
+    height: calc(100vh - 80px); /* Toda la pantalla menos el header */
+    background-color: #0a0a0a;
+    flex-direction: column; /* Lista vertical */
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    transition: 0.4s ease-in-out;
+    border-top: 1px solid #222;
+  }
+
+  .nav-menu.active {
+    left: 0; /* Entra en pantalla */
+  }
+
+  .nav-menu a {
+    font-size: 1.5rem; /* Letra más grande para tocar con el dedo */
+  }
 }
 
 /* ============================================================
